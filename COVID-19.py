@@ -31,9 +31,10 @@ import numpy as np
 
 predicciones_por_dia = []
 valores_por_dia = []
+repeticiones = int(input("Cuantas repeticiones quiere? "))
 for dia_a_predecir in range(37,38):
     predicciones = []
-    for i in range(2):
+    for i in range(repeticiones):
 
 # In[1]:
 
