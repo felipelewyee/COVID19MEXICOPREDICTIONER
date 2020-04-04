@@ -41,13 +41,13 @@ for dia_a_predecir in range(4,37):
 # In[1]:
 
 #dia_a_predecir = 35
-    if manana_tarde == 'Mañana':
-        dias_a_usar = dia_a_predecir-2
-    elif manana_tarde == 'Tarde':
-        dias_a_usar = dia_a_predecir-1
-    else:
-        print('Opción no Valida')
-        exit()
+        if manana_tarde == 'Mañana':
+            dias_a_usar = dia_a_predecir-2
+        elif manana_tarde == 'Tarde':
+            dias_a_usar = dia_a_predecir-1
+        else:
+            print('Opción no Valida')
+            exit()
 
 
 # Definimos la lista de paises que analizaremos. (Hay más paises en la base de datos de John Hopkins)
