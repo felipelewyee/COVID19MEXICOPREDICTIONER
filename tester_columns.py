@@ -32,7 +32,7 @@ import numpy as np
 predicciones_por_dia = []
 valores_por_dia = []
 dia_a_predecir = int(input("Dia a predecir (Ref. 04/04/2020 es el dia 38)? "))
-manana_tarde = input("Predicción de la Mañana o de la Tarde (Mañana/Tarde)? ")
+manana_tarde = input("Predicción de la Mañana o de la Tarde (M/T)? ")
 repeticiones = int(input("Cuantas repeticiones quiere? "))
 columnas = input("Inserte las columnas que desea usar mediante numeros separados por espacios, y luego de Enter\n1 Area\n2 Población\n3 Namerica\n4 Samerica\n5 Europe\n6 Asia\n7 Oceanía\n8 África\n9 Latitud\n10 Longitud\n11 Dia de inicio\n12 PIB\n13 Gasto Salud\nColumnas a usar: ")
 columnas = columnas.split(' ')
@@ -42,9 +42,9 @@ for i in range(repeticiones):
 
 # In[1]:
 
-    if manana_tarde == 'Mañana':
+    if manana_tarde == 'M':
         dias_a_usar = dia_a_predecir-2
-    elif manana_tarde == 'Tarde':
+    elif manana_tarde == 'T':
         dias_a_usar = dia_a_predecir-1
     else:
         print('Opción no Valida')
