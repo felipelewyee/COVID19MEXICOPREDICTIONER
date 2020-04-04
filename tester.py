@@ -356,6 +356,8 @@ for dia_a_predecir in range(4,37):
                             dia_inicio += 1                    
             f.close()
 
+            if(len(infected)<dias_a_usar):
+                continue
             print(pais,superficie,poblacion,namerica,samerica,europe,asia,oceania,africa,lat,longitud,dia_inicio,pib,salud_pib,end=',',file=db,sep=',')
             for value in infected[:dias_a_usar]:
                 print(value,file=db,end = ',')
