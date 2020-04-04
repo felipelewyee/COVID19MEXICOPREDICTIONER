@@ -34,7 +34,7 @@ repeticiones = int(input("Cuantas repeticiones quiere? "))
 dia_inicio_Mexico = 37
 predicciones_por_dia = []
 valores_por_dia = []
-for dia_a_predecir in range(4,37):
+for dia_a_predecir in range(3,37):
     predicciones = []
     for i in range(repeticiones):
 
@@ -357,7 +357,7 @@ for dia_a_predecir in range(4,37):
                     lat = float(line.split(',')[2])
                     longitud = float(line.split(',')[3])
                     country_data = []
-                    data = line.replace('\n','').split(',')[4:dia_inicio_Mexico-1+dia_a_predecir+4]
+                    data = line.replace('\n','').split(',')[4:]
                     for number in data:
                         if(number != '0'):
                             infected.append(int(number))
@@ -463,4 +463,4 @@ for dia_a_predecir in range(4,37):
 
 for i,prediccion in enumerate(predicciones_por_dia):
     a = np.asarray(prediccion)
-    print("dia:",i+4,"mean:",a.mean(),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])
+    print("dia:",i+3,"mean:",a.mean(),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])
