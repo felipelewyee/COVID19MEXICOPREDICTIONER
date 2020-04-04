@@ -29,16 +29,25 @@
 
 import numpy as np
 
+manana_tarde = input("Predicción de la Mañana o de la Tarde (Mañana/Tarde)? ")
+repeticiones = int(input("Cuantas repeticiones quiere? "))
+dia_inicio_Mexico = 37
 predicciones_por_dia = []
 valores_por_dia = []
 for dia_a_predecir in range(4,37):
     predicciones = []
-    for i in range(40):
+    for i in range(repeticiones):
 
 # In[1]:
 
 #dia_a_predecir = 35
+    if manana_tarde == 'Mañana':
         dias_a_usar = dia_a_predecir-2
+    elif manana_tarde == 'Tarde':
+        dias_a_usar = dia_a_predecir-1
+    else:
+        print('Opción no Valida')
+        exit()
 
 
 # Definimos la lista de paises que analizaremos. (Hay más paises en la base de datos de John Hopkins)
@@ -87,7 +96,7 @@ for dia_a_predecir in range(4,37):
                     lat = float(line.split(',')[2])
                     longitud = float(line.split(',')[3])
                     country_data = []
-                    data = line.replace('\n','').split(',')[4:]
+                    data = line.replace('\n','').split(',')[4:dia_inicio_Mexico-1+dia_a_predecir+4]
                     for number in data:
                         if(number != '0'):
                             infected.append(int(number))
@@ -348,7 +357,7 @@ for dia_a_predecir in range(4,37):
                     lat = float(line.split(',')[2])
                     longitud = float(line.split(',')[3])
                     country_data = []
-                    data = line.replace('\n','').split(',')[4:]
+                    data = line.replace('\n','').split(',')[4:dia_inicio_Mexico-1+dia_a_predecir+4]
                     for number in data:
                         if(number != '0'):
                             infected.append(int(number))
