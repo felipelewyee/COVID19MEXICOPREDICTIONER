@@ -29,25 +29,19 @@
 
 import numpy as np
 
-manana_tarde = input("Predicción de la Mañana o de la Tarde (Mañana/Tarde)? ")
+N = int(input("Cuanto vale la N? "))
 repeticiones = int(input("Cuantas repeticiones quiere? "))
 dia_inicio_Mexico = 37
 predicciones_por_dia = []
 valores_por_dia = []
-for dia_a_predecir in range(3,37):
+for dia_a_predecir in range(N+1,40):
     predicciones = []
     for i in range(repeticiones):
 
 # In[1]:
 
 #dia_a_predecir = 35
-        if manana_tarde == 'Mañana':
-            dias_a_usar = dia_a_predecir-2
-        elif manana_tarde == 'Tarde':
-            dias_a_usar = dia_a_predecir-1
-        else:
-            print('Opción no Valida')
-            exit()
+        dias_a_usar = dia_a_predecir-N
 
 
 # Definimos la lista de paises que analizaremos. (Hay más paises en la base de datos de John Hopkins)
@@ -230,18 +224,18 @@ for dia_a_predecir in range(3,37):
 
         from sklearn.model_selection import train_test_split
         X = pd.DataFrame()
-        X['Area'] = data['Area']
-        X['poblacion'] = data['poblacion']
-        X['Namerica'] = data['Namerica']
-        X['Samerica'] = data['Samerica']
-        X['Europe'] = data['Europe']
-        X['Asia'] = data['Asia']
-        X['Oceania'] = data['Oceania']
-        X['lat'] = data['lat']
-        X['longitud'] = data['longitud']
-        X['Dia_inicio'] = data['Dia_inicio']
-        X['PIB'] = data['PIB']
-        X['Gasto_Salud'] = data['Gasto_Salud']
+#        X['Area'] = data['Area']
+#        X['poblacion'] = data['poblacion']
+#        X['Namerica'] = data['Namerica']
+#        X['Samerica'] = data['Samerica']
+#        X['Europe'] = data['Europe']
+#        X['Asia'] = data['Asia']
+#        X['Oceania'] = data['Oceania']
+#        X['lat'] = data['lat']
+#        X['longitud'] = data['longitud']
+#        X['Dia_inicio'] = data['Dia_inicio']
+#        X['PIB'] = data['PIB']
+#        X['Gasto_Salud'] = data['Gasto_Salud']
         for i in range(1,dias_a_usar+1):
             X[str(i)] = data[str(i)]
         Y = pd.DataFrame()
@@ -260,7 +254,7 @@ for dia_a_predecir in range(3,37):
         from keras.layers import Dense,Dropout
 
         model = Sequential()
-        model.add(Dense(32, input_dim=dias_a_usar+12, activation='relu'))
+        model.add(Dense(32, input_dim=dias_a_usar+0, activation='relu'))
         model.add(Dense(32, activation='relu'))
         model.add(Dense(32, activation='relu'))
         model.add(Dense(32, activation='relu'))
@@ -435,18 +429,18 @@ for dia_a_predecir in range(3,37):
         from sklearn.model_selection import train_test_split
         X_prediction = pd.DataFrame()
 #X['Pais'] = data['Pais']#,'Area','poblacion','Continente','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28']
-        X_prediction['Area'] = data_prediction['Area']
-        X_prediction['poblacion'] = data_prediction['poblacion']
-        X_prediction['Namerica'] = data_prediction['Namerica']
-        X_prediction['Samerica'] = data_prediction['Samerica']
-        X_prediction['Europe'] = data_prediction['Europe']
-        X_prediction['Asia'] = data_prediction['Asia']
-        X_prediction['Oceania'] = data_prediction['Oceania']
-        X_prediction['lat'] = data_prediction['lat']
-        X_prediction['longitud'] = data_prediction['longitud']
-        X_prediction['Dia_inicio'] = data_prediction['Dia_inicio']
-        X_prediction['PIB'] = data_prediction['PIB']
-        X_prediction['Gasto_Salud'] = data_prediction['Gasto_Salud']
+#        X_prediction['Area'] = data_prediction['Area']
+#        X_prediction['poblacion'] = data_prediction['poblacion']
+#        X_prediction['Namerica'] = data_prediction['Namerica']
+#        X_prediction['Samerica'] = data_prediction['Samerica']
+#        X_prediction['Europe'] = data_prediction['Europe']
+#        X_prediction['Asia'] = data_prediction['Asia']
+#        X_prediction['Oceania'] = data_prediction['Oceania']
+#        X_prediction['lat'] = data_prediction['lat']
+#        X_prediction['longitud'] = data_prediction['longitud']
+#        X_prediction['Dia_inicio'] = data_prediction['Dia_inicio']
+#        X_prediction['PIB'] = data_prediction['PIB']
+#        X_prediction['Gasto_Salud'] = data_prediction['Gasto_Salud']
         for i in range(1,dias_a_usar+1):
             X_prediction[str(i)] = data_prediction[str(i)]
         Y_prediction = pd.DataFrame()
@@ -463,4 +457,4 @@ for dia_a_predecir in range(3,37):
 
 for i,prediccion in enumerate(predicciones_por_dia):
     a = np.asarray(prediccion)
-    print("dia:",i+3,"mean:",a.mean(),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])
+    print("dia:",i+N+1,"mean:",a.mean(),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])

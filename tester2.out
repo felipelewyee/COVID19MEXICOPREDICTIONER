@@ -1,0 +1,45 @@
+Using TensorFlow backend.
+Area
+716.0 17098246.0
+716.0 17098246.0
+Poblacion
+1543300.0 1402030160.0
+1543300.0 1402030160.0
+lat
+-31.9961875 64.0
+-31.9961875 64.0
+longitud
+-95.7129 141.2327875
+-95.7129 141.2327875
+Dia_inicio
+0 35
+0 35
+PIB
+12672.0 21439453.0
+12672.0 21439453.0
+Gasto_Salud
+0.52 14.32
+0.52 14.32
+Traceback (most recent call last):
+  File "/home/felipelew/anaconda3/envs/keras-gpu/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 2890, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tester2.py", line 243, in <module>
+    Y[str(dia_a_predecir)] = data[str(dia_a_predecir)]
+  File "/home/felipelew/anaconda3/envs/keras-gpu/lib/python3.7/site-packages/pandas/core/frame.py", line 2975, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/felipelew/anaconda3/envs/keras-gpu/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 2892, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '3'
