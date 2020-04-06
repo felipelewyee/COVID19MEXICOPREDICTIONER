@@ -231,6 +231,7 @@ for dia_a_predecir in range(N+1,40):
 #        X['Europe'] = data['Europe']
 #        X['Asia'] = data['Asia']
 #        X['Oceania'] = data['Oceania']
+#        X['Africa'] = data['Africa']
 #        X['lat'] = data['lat']
 #        X['longitud'] = data['longitud']
 #        X['Dia_inicio'] = data['Dia_inicio']
@@ -436,6 +437,7 @@ for dia_a_predecir in range(N+1,40):
 #        X_prediction['Europe'] = data_prediction['Europe']
 #        X_prediction['Asia'] = data_prediction['Asia']
 #        X_prediction['Oceania'] = data_prediction['Oceania']
+#        X_prediction['Africa'] = data_prediction['Africa']
 #        X_prediction['lat'] = data_prediction['lat']
 #        X_prediction['longitud'] = data_prediction['longitud']
 #        X_prediction['Dia_inicio'] = data_prediction['Dia_inicio']
@@ -457,4 +459,4 @@ for dia_a_predecir in range(N+1,40):
 
 for i,prediccion in enumerate(predicciones_por_dia):
     a = np.asarray(prediccion)
-    print("dia:",i+N+1,"mean:",a.mean(),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])
+    print("dia:",i+N+1,"mean:",a.mean(),"mediana:",np.median(a),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])

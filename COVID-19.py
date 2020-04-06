@@ -234,6 +234,7 @@ for i in range(repeticiones):
     X['Europe'] = data['Europe']
     X['Asia'] = data['Asia']
     X['Oceania'] = data['Oceania']
+    X['Africa'] = data['Africa']
     X['lat'] = data['lat']
     X['longitud'] = data['longitud']
     X['Dia_inicio'] = data['Dia_inicio']
@@ -257,7 +258,7 @@ for i in range(repeticiones):
     from keras.layers import Dense,Dropout
 
     model = Sequential()
-    model.add(Dense(32, input_dim=dias_a_usar+12, activation='relu'))
+    model.add(Dense(32, input_dim=dias_a_usar+13, activation='relu'))
     model.add(Dense(32, activation='relu'))
     model.add(Dense(32, activation='relu'))
     model.add(Dense(32, activation='relu'))
@@ -439,6 +440,7 @@ for i in range(repeticiones):
     X_prediction['Europe'] = data_prediction['Europe']
     X_prediction['Asia'] = data_prediction['Asia']
     X_prediction['Oceania'] = data_prediction['Oceania']
+    X_prediction['Africa'] = data_prediction['Africa']
     X_prediction['lat'] = data_prediction['lat']
     X_prediction['longitud'] = data_prediction['longitud']
     X_prediction['Dia_inicio'] = data_prediction['Dia_inicio']
@@ -460,4 +462,4 @@ valores_por_dia.append(np.asarray(Y_prediction)[0][0])
 
 for i,prediccion in enumerate(predicciones_por_dia):
     a = np.asarray(prediccion)
-    print("dia:",dia_a_predecir,"mean:",a.mean(),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])
+    print("dia:",dia_a_predecir,"mean:",a.mean(),"mediana:",np.median(a),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])

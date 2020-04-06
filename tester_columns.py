@@ -492,4 +492,4 @@ valores_por_dia.append(np.asarray(Y_prediction)[0][0])
 
 for i,prediccion in enumerate(predicciones_por_dia):
     a = np.asarray(prediccion)
-    print("dia:",dia_a_predecir,"mean:",a.mean(),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])
+    print("dia:",dia_a_predecir,"mean:",a.mean(),"mediana:",np.median(a),"min",a.min(),"max",a.max(),"std:",a.std(),"val:",valores_por_dia[i])
