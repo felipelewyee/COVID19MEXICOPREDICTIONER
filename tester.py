@@ -68,7 +68,7 @@ for dia_a_predecir in range(N+1,40):
         for country in country_namelist:
             f = open('propiedades_por_pais.csv')
             for line in f:
-                if(country in line):
+                if(country == line.replace('\n','').split(',')[0]):
                     pais=line.replace('\n','').split(',')[0]
                     superficie=line.replace('\n','').split(',')[1]
                     poblacion=line.replace('\n','').split(',')[2]
@@ -86,7 +86,7 @@ for dia_a_predecir in range(N+1,40):
             infected = []
             dia_inicio = 0
             for line in f:
-                if(country in line.split(',')[1]):
+                if(country == line.split(',')[1]):
                     lat = float(line.split(',')[2])
                     longitud = float(line.split(',')[3])
                     country_data = []
@@ -329,7 +329,7 @@ for dia_a_predecir in range(N+1,40):
         for country in country_prediction_namelist:
             f = open('propiedades_por_pais.csv')
             for line in f:
-                if(country in line):
+                if(country == line.replace('\n','').split(',')[0]):
                     pais=line.replace('\n','').split(',')[0]
                     superficie=line.replace('\n','').split(',')[1]
                     poblacion=line.replace('\n','').split(',')[2]
@@ -347,7 +347,7 @@ for dia_a_predecir in range(N+1,40):
             infected = []
             dia_inicio = 0
             for line in f:
-                if(country in line.split(',')[1]):
+                if(country == line.split(',')[1]):
                     lat = float(line.split(',')[2])
                     longitud = float(line.split(',')[3])
                     country_data = []
