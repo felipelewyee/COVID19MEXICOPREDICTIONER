@@ -211,6 +211,18 @@ for i in range(repeticiones):
     data['Gasto_Salud'] = normalized_Gasto_Salud
     print(Gasto_Saludmin,Gasto_Saludmax)
 
+    infectedmin = 1
+    infectedmax = 1
+
+    for i in range(dias_a_usar):
+        infected = data[str(i+1)]
+        infectedmax = max(infectedmax,np.amax(infected))
+
+    for i in range(dias_a_usar):
+        infected = data[str(i+1)]
+        normalize_infected = (infected-infectedmin)/(infectedmax-infectedmin)
+        data[str(i+1)] = normalize_infected
+
 
 # Imprimimos la base de datos normalizada
 
@@ -229,17 +241,17 @@ for i in range(repeticiones):
     X = pd.DataFrame()
     X['Area'] = data['Area']
     X['poblacion'] = data['poblacion']
-    X['Namerica'] = data['Namerica']
-    X['Samerica'] = data['Samerica']
-    X['Europe'] = data['Europe']
-    X['Asia'] = data['Asia']
-    X['Oceania'] = data['Oceania']
-    X['Africa'] = data['Africa']
+    #X['Namerica'] = data['Namerica']
+    #X['Samerica'] = data['Samerica']
+    #X['Europe'] = data['Europe']
+    #X['Asia'] = data['Asia']
+    #X['Oceania'] = data['Oceania']
+    #X['Africa'] = data['Africa']
     X['lat'] = data['lat']
     X['longitud'] = data['longitud']
     X['Dia_inicio'] = data['Dia_inicio']
     X['PIB'] = data['PIB']
-    X['Gasto_Salud'] = data['Gasto_Salud']
+    #X['Gasto_Salud'] = data['Gasto_Salud']
     for i in range(1,dias_a_usar+1):
         X[str(i)] = data[str(i)]
     Y = pd.DataFrame()
@@ -258,10 +270,12 @@ for i in range(repeticiones):
     from keras.layers import Dense,Dropout
 
     model = Sequential()
-    model.add(Dense(32, input_dim=dias_a_usar+13, activation='relu'))
-    model.add(Dense(32, activation='relu'))
-    model.add(Dense(32, activation='relu'))
-    model.add(Dense(32, activation='relu'))
+    model.add(Dense(64, input_dim=dias_a_usar+6, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(64, activation='relu'))
     model.add(Dense(1, activation='linear'))
 
 
@@ -270,7 +284,7 @@ for i in range(repeticiones):
 # In[11]:
 
 
-    model.compile(loss='MAPE', optimizer='adam')
+    model.compile(loss='MAE', optimizer='adam')
 
 
 # Entrenamos la red
@@ -278,7 +292,7 @@ for i in range(repeticiones):
 # In[12]:
 
 
-    history = model.fit(X_train, y_train, epochs=150, validation_data=(X_test,y_test))
+    history = model.fit(X_train, y_train, epochs=1000, validation_data=(X_test,y_test))
 
 
 # In[13]:
@@ -419,8 +433,13 @@ for i in range(repeticiones):
     Gasto_Salud_prediction = data_prediction.Gasto_Salud #returns a numpy array
     normalized_Gasto_Salud_prediction=(Gasto_Salud_prediction-Gasto_Saludmin)/(Gasto_Saludmax-Gasto_Saludmin)
     data_prediction['Gasto_Salud'] = normalized_Gasto_Salud_prediction
-        
-        
+
+    for i in range(dias_a_usar):
+        infected = data_prediction[str(i+1)]
+        normalize_infected = (infected-infectedmin)/(infectedmax-infectedmin)
+        data_prediction[str(i+1)] = normalize_infected
+
+
 # In[21]:
 
 
@@ -435,17 +454,17 @@ for i in range(repeticiones):
 #X['Pais'] = data['Pais']#,'Area','poblacion','Continente','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28']
     X_prediction['Area'] = data_prediction['Area']
     X_prediction['poblacion'] = data_prediction['poblacion']
-    X_prediction['Namerica'] = data_prediction['Namerica']
-    X_prediction['Samerica'] = data_prediction['Samerica']
-    X_prediction['Europe'] = data_prediction['Europe']
-    X_prediction['Asia'] = data_prediction['Asia']
-    X_prediction['Oceania'] = data_prediction['Oceania']
-    X_prediction['Africa'] = data_prediction['Africa']
+#    X_prediction['Namerica'] = data_prediction['Namerica']
+#    X_prediction['Samerica'] = data_prediction['Samerica']
+#    X_prediction['Europe'] = data_prediction['Europe']
+#    X_prediction['Asia'] = data_prediction['Asia']
+#    X_prediction['Oceania'] = data_prediction['Oceania']
+#    X_prediction['Africa'] = data_prediction['Africa']
     X_prediction['lat'] = data_prediction['lat']
     X_prediction['longitud'] = data_prediction['longitud']
     X_prediction['Dia_inicio'] = data_prediction['Dia_inicio']
     X_prediction['PIB'] = data_prediction['PIB']
-    X_prediction['Gasto_Salud'] = data_prediction['Gasto_Salud']
+#    X_prediction['Gasto_Salud'] = data_prediction['Gasto_Salud']
     for i in range(1,dias_a_usar+1):
         X_prediction[str(i)] = data_prediction[str(i)]
     Y_prediction = pd.DataFrame()
