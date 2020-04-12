@@ -431,9 +431,9 @@ for dia_a_predecir in range(N+1,46):
         data_prediction['Gasto_Salud'] = normalized_Gasto_Salud_prediction
         
         for i in range(dias_a_usar):
-            infected = data[str(i+1)]
+            infected = data_prediction[str(i+1)]
             normalize_infected = (infected-infectedmin)/(infectedmax-infectedmin)
-            data[str(i+1)] = normalize_infected
+            data_prediction[str(i+1)] = normalize_infected
         
 # In[21]:
 
