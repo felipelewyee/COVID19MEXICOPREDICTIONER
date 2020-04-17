@@ -1,29 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Red para COVID-19
-
-# Esta es una red secuencial simple para tratar de predecir el dato de número de contagiados de COVID19 en México que se da a las 19:00 horas por parte del gobierno.
-# 
-# **Para ejecutar la predicción:**
-# 
-# **1)** Ejecutar processing.sh, este script descarga el archivo time_series_covid19_confirmed_global.csv con datos de contagiados por país. Este archivo se actualiza en internet aproximadamente a las 5:30pm con datos del día anterior, hay que revisar que esté actualizado a la fecha del día de la predicción.
-# 
-# chmod +x processing.sh
-# 
-# ./processing.sh
-# 
-# **2)** Abrir jupyter notebook (se requiere keras, tensorflow, pandas y numpy instaldos).
-# 
-# jupyter notebook COVID-19.ipynb
-# 
-# **3)** Actualizar dias_a_usar y dia_a_predecir. Como referencia, el 30 de marzo fue el día 33 de infección en México, por lo que dia_a_predecir=33 y dias_a_usar=32.
-# 
-# **4)** Ejecutar todos los cuadros.
-# 
 # Creado por Juan Felipe Huan Lew Yee, Neftalí Isaí Rodríguez Rojas y Jorge Martín del Campo Ramírez.
-
-# Se define la clase pais
 
 # Definimos el dia que queremos la prediccion
 
@@ -428,7 +406,6 @@ for i in range(repeticiones):
 
     from sklearn.model_selection import train_test_split
     X_prediction = pd.DataFrame()
-#X['Pais'] = data['Pais']#,'Area','poblacion','Continente','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28']
     X_prediction['Area'] = data_prediction['Area']
     X_prediction['poblacion'] = data_prediction['poblacion']
 #    X_prediction['Namerica'] = data_prediction['Namerica']

@@ -3,27 +3,7 @@
 
 # # Red para COVID-19
 
-# Esta es una red secuencial simple para tratar de predecir el dato de número de contagiados de COVID19 en México que se da a las 19:00 horas por parte del gobierno.
-# 
-# **Para ejecutar la predicción:**
-# 
-# **1)** Ejecutar processing.sh, este script descarga el archivo time_series_covid19_confirmed_global.csv con datos de contagiados por país. Este archivo se actualiza en internet aproximadamente a las 5:30pm con datos del día anterior, hay que revisar que esté actualizado a la fecha del día de la predicción.
-# 
-# chmod +x processing.sh
-# 
-# ./processing.sh
-# 
-# **2)** Abrir jupyter notebook (se requiere keras, tensorflow, pandas y numpy instaldos).
-# 
-# jupyter notebook COVID-19.ipynb
-# 
-# **3)** Actualizar dias_a_usar y dia_a_predecir. Como referencia, el 30 de marzo fue el día 33 de infección en México, por lo que dia_a_predecir=33 y dias_a_usar=32.
-# 
-# **4)** Ejecutar todos los cuadros.
-# 
 # Creado por Juan Felipe Huan Lew Yee, Neftalí Isaí Rodríguez Rojas y Jorge Martín del Campo Ramírez.
-
-# Se define la clase pais
 
 # Definimos el dia que queremos la prediccion
 
@@ -45,7 +25,6 @@ for dia_a_predecir in range(N+1,51):
 
 # In[1]:
 
-#dia_a_predecir = 35
         dias_a_usar = dia_a_predecir-N
 
 
