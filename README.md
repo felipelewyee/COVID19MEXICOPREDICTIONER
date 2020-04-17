@@ -8,18 +8,18 @@ La red aprende de los últimos N días de la curva, y usa información de superf
 
 1. Ejecutar processing.sh, este script descarga el archivo time_series_covid19_confirmed_global.csv con datos de contagiados por pais. Este archivo se actualiza en internet aproximadamente a las 6:30pm con datos del día anterior, revisar que esté actualizado a la fecha del día de la predicción.
 
-''' 
+``` 
 chmod +x processing.sh
-'''
-'''
+```
+```
 ./processing.sh
-'''
+```
 
 2. Abrir jupyter notebook (se requiere keras, tensorflow, pandas y numpy instaldos).
 
-'''
+```
 jupyter notebook COVID-19.ipynb
-'''
+```
 
 3. Actualizar dias_a_usar y dia_a_predecir. Como referencia, el 30 de marzo fue el día 33 de infeccion en Mexico, por lo que dia_a_predecir=33 y dias_a_usar=32.
 
