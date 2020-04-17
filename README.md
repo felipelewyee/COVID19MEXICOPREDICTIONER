@@ -42,6 +42,11 @@ python COVID-19.py
 
 5. Ingresar el número de repeticiones de la predicción. La red se entrenará este número de veces desde diferentes pesos de partida y se obtendrá un promedio de las predicciones. Este es el dato que se usa para actualizar la tabla de https://elquimicoartificial.wordpress.com
 
+## Descripción de las redes.
+1. Red 1. Aprende de las curvas de otros países utilizando todos los días previos al número de día a estudiar para predecir el dato de México. Esta es la red que se encuentra en master.
+2. Red 2. Aprende de las curvas de otros países como la red 1, pero agrega información de superficie, población, latitud, longitud, dia de deteción del primer caso, PIB y gasto en salud.
+3. Red 3. Apredne de las curvas de otros países utilizando los últimos N días (es decir, esta red no utiliza todos los días), también utiliza información de superficie, población, latitud, longitud, dia de deteción del primer caso, PIB, gasto en salud, día de inicio de la cuarentena, dia a predecir.
+
 ## Descripción de archivos
 
 COVID-19.ipynb, Version en Jupyter Notebook de la red.
