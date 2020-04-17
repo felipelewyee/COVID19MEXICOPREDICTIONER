@@ -73,7 +73,7 @@ for dia_a_predecir in range(N+1,46):
             for line in f:
                 if(country == line.split(',')[1]):
                     country_data = []
-                    data = line.replace('\n','').split(',')[4:]
+                    data = line.replace('\n','').split(',')[4:dia_inicio_Mexico-1+dia_a_predecir+4]
                     for number in data:
                         if(number != '0'):
                             infected.append(int(number))
