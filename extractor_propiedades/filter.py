@@ -2,7 +2,7 @@ paises = ['Afghanistan', 'Albania', 'Algeria', 'Angola', 'Andorra', 'Antigua and
 for pais in paises:
 
     found = False
-    f = open('poblacion.csv')
+    f = open('superficie.csv')
     for line in f:
         l = line.split(',')
         if l[0] == pais:
