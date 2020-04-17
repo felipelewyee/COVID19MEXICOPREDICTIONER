@@ -56,6 +56,6 @@ database_prediction.csv, Base de datos con la informacion del pais a predecir, p
 
 preprocessing.py, Script de pyhon para juntar la base de datos del hospital John Hopkins con los datos de propiedades_por_pais.csv, se ejecuta automáticamente al usar processing.sh
 
-processing.sh, Descarga la base de datos del hospital John Hopkins y ejecuta varios scripts para su tratamiento.
+processing.sh, Descarga la base de datos del Universidad John Hopkins y ejecuta varios scripts para su tratamiento.
 
 tester.py Script para realizar predicciones de todos los días de la curva de México y evaluar la calidad de la red.
