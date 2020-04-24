@@ -1,6 +1,6 @@
 # COVID-19 Mexico Predictioner
 
-Esta es una red secuencial simple para tratar de predecir el dato de número de contagiados de COVID19 en Mexico y que se da a las 19:00 horas por parte del gobierno. Las predicciones de la red se actualizan en la página https://elquimicoartificial.wordpress.com Esperamos que esta red pueda ser de utilidad para quien desee probar nuevas ideas en la predicción; otras redes con datos adicionales de superficie, poblacion, PIB, etc se encuentran como branches en el git.
+Esta es una red secuencial simple para tratar de predecir el número de casos confirmados de COVID19 en Mexico y que se anuncia oficialmente a las 19:00 horas. Las predicciones de la red se actualizan en la página https://elquimicoartificial.wordpress.com Esperamos que esta red pueda ser de utilidad para quien desee probar nuevas ideas en la predicción; otras redes con datos adicionales de superficie, poblacion, PIB, etc se encuentran como branches en el git.
 
 Creado por **Juan Felipe Huan Lew Yee**, **Isaí Neftalí Rodríguez Rojas** y **Jorge Martín del Campo Ramírez**.
 
