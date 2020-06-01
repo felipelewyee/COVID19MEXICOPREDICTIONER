@@ -22,7 +22,7 @@ for line1 in f1:
         f2.close()
 
         #Check if the number is not already listed in the database and add it
-        if confirmed not in line1:
+        if confirmed not in line1 and int(confirmed) >= int(line1.split(',')[-1]):
             print(line1.replace('\n','')+','+confirmed)
         else:
             print(line1.replace('\n',''))
